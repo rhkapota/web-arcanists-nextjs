@@ -1,7 +1,7 @@
 'use client';
 
 import { memo } from 'react';
-import { Mail, ArrowRight, CircleFadingPlus } from 'lucide-react';
+import { Mail, ArrowRight, CircleFadingPlus, Users } from 'lucide-react';
 
 const FOOTER_LINKS = [
   { label: 'Homes', href: '/#about' },
@@ -10,8 +10,9 @@ const FOOTER_LINKS = [
 ];
 
 const SOCIAL_LINKS = [
-  { icon: <Mail size={18} />, label: 'Email', href: 'mailto:arcanists.umy@gmail.com' },
-  { icon: <CircleFadingPlus size={18} />, label: 'Instagram', href: 'https://www.instagram.com/arcanists.umy' }
+  { icon: <Mail size={12} />, label: 'Email', href: 'mailto:arcanists.umy@gmail.com' },
+  { icon: <Users size={12} />, label: 'Linkedin', href: 'https://www.linkedin.com/company/arcanists' },
+  { icon: <CircleFadingPlus size={12} />, label: 'Instagram', href: 'https://www.instagram.com/arcanists.umy' }
 ];
 
 export function Footer() {
