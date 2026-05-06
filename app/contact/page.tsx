@@ -1,6 +1,8 @@
 'use client';
 
 import { memo } from 'react';
+import { useState } from 'react';
+
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { 
@@ -13,41 +15,42 @@ const CONTACT_CARDS = [
     bgIcon: <Globe size={120} />,
     title: "Email", 
     desc: "Direct communication", 
-    link: "contact@arcanist.team", 
-    href: "mailto:contact@arcanist.team" 
+    link: "arcanists.umy@gmail.com", 
+    href: "mailto:arcanists.umy@gmail.com" 
   },
   { 
     icon: <Users size={24} />, 
     bgIcon: <Users size={120} />,
-    title: "Discord", 
+    title: "Linkedin", 
     desc: "Community & Support", 
-    link: "Coming Soon", 
-    href: "#" 
+    link: "www.linkedin.com/company/arcanists", 
+    href: "https://www.linkedin.com/company/arcanists" 
   },
   { 
     icon: <CircleFadingPlus size={24} />, 
     bgIcon: <Image size={120} />,
     title: "Instagram", 
     desc: "Documentation & Media", 
-    link: "instagram.com/arcanist.team", 
-    href: "https://www.instagram.com/arcanist.team" 
+    link: "instagram.com/arcanist.umy", 
+    href: "https://www.instagram.com/arcanist.umy" 
   }
 ];
 
 const REQUIREMENTS = [
-  { title: "CTF Foundation", desc: "Experience in Web, Pwn, Crypto, or Forensics." },
+  { title: "CTF Foundation", desc: "Experience in Web, Pwn, Crypto, Reverse engineering or Forensics." },
   { title: "Learning Passion", desc: "Commitment to research and skill growth." },
   { title: "Teamwork", desc: "Collaborate effectively during intense operations." }
 ];
 
 const PROCESS_STEPS = [
-  { step: "01", title: "Application", desc: "Submit your technical background." },
-  { step: "02", title: "Technical Lab", desc: "Solve our custom CTF challenges." },
-  { step: "03", title: "Interview", desc: "Discuss logic and problem solving." },
-  { step: "04", title: "Deployment", desc: "Welcome to the Arcanists division." }
+  { step: "01", title: "Prove Yourself", desc: "Complete the required challenges and learning paths we provide."  },
+  { step: "02", title: "Submit & Verify", desc: "Submit your results and contact admin for validation." },
+  { step: "03", title: "Join the Circle", desc: "Welcome to Arcanists." },
+  { step: "04", title: "Learn", desc: "Learn together. Break together. Secure together." }
 ];
 
 export default function ContactPage() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <main className="w-full bg-black text-white overflow-x-hidden selection:bg-orange-500/30">
       <Navigation />
@@ -153,7 +156,10 @@ export default function ContactPage() {
                     </div>
                   </div>
                 ))}
-                <button className="w-full mt-8 md:mt-10 px-6 py-4 bg-orange-500 text-black rounded-xl terminal-text text-[10px] md:text-xs font-black uppercase tracking-[0.2em] hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all duration-500 active:scale-[0.98]">
+                <button 
+                  onClick={() => setShowModal(true)}
+                  className="w-full mt-8 md:mt-10 px-6 py-4 bg-orange-500 text-black rounded-xl terminal-text text-[10px] md:text-xs font-black uppercase tracking-[0.2em] hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all duration-500 active:scale-[0.98]"
+                >
                   Start Application
                 </button>
               </div>
@@ -164,6 +170,89 @@ export default function ContactPage() {
       </section>
 
       <Footer />
+      {showModal && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
+    
+    <div className="relative w-full max-w-2xl bg-neutral-900 border border-neutral-800 rounded-2xl p-6 md:p-8 shadow-2xl animate-[fadeIn_0.3s_ease]">
+      
+      {/* Close Button */}
+      <button 
+        onClick={() => setShowModal(false)}
+        className="absolute top-4 right-4 text-neutral-500 hover:text-white text-sm"
+      >
+        ✕
+      </button>
+
+      <h2 className="font-mono text-xl md:text-2xl font-bold text-orange-500 mb-4 uppercase">
+        Arcanists Registration
+      </h2>
+
+      <p className="text-neutral-400 text-sm mb-4">
+        (Forticode - Cyber Security and Networking Division)
+      </p>
+
+      <p className="text-neutral-300 text-sm mb-4">
+        Registration is opened in batches for new students at UMY.
+      </p>
+
+      <div className="text-neutral-400 text-sm space-y-3">
+        <p>If you miss the batch, you must complete:</p>
+
+        <ul className="list-disc list-inside space-y-2 text-xs md:text-sm">
+          <li>
+            Linux Course → 
+            <a href="https://lms.idn.id/courses/belajar-linux-dari-nol" target="_blank" className="text-orange-500 hover:underline ml-1">
+              Open
+            </a>
+          </li>
+
+          <li>
+            Python Course → 
+            <a href="https://www.codepolitan.com/course/intro/belajar-python-dasar" target="_blank" className="text-orange-500 hover:underline ml-1">
+              Open
+            </a>
+          </li>
+
+          <li>
+            Networking Course → 
+            <a href="https://www.netacad.com/courses/networking-basics?courseLang=en-US" target="_blank" className="text-orange-500 hover:underline ml-1">
+              Open
+            </a>
+          </li>
+
+          <li>
+            TryHackMe Room → 
+            <a href="https://tryhackme.com/room/basicpentestingjt" target="_blank" className="text-orange-500 hover:underline ml-1">
+              Open
+            </a>
+          </li>
+        </ul>
+
+        <p className="mt-4">
+          After completing, submit your certificates (open indefinitely).
+        </p>
+
+        <p className="text-xs text-neutral-500 mt-4">
+          Special Note: Rank in the top 5 of random CTF or Have discovered a vulnerability (bug) in a platform (proof or PoC required).
+        </p>
+
+        <p className="text-xs text-neutral-500">
+          For Special Note Contact Telegram: <span className="text-orange-500">@Leosycthe</span>
+        </p>
+      </div>
+
+<a 
+  href="https://forms.gle/9wmiqTap6XcdEGUn6"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-6 w-full block text-center py-3 bg-orange-500 text-black rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-white transition-all"
+>
+  Continue to Application
+</a>
+
+    </div>
+  </div>
+)}
     </main>
   );
 }

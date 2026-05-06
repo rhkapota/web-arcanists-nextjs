@@ -10,8 +10,8 @@ const FOOTER_LINKS = [
 ];
 
 const SOCIAL_LINKS = [
-  { icon: <Mail size={18} />, label: 'Email', href: 'mailto:contact@arcanist.team' },
-  { icon: <CircleFadingPlus size={18} />, label: 'Instagram', href: 'https://www.instagram.com/arcanist.team' }
+  { icon: <Mail size={18} />, label: 'Email', href: 'mailto:arcanists.umy@gmail.com' },
+  { icon: <CircleFadingPlus size={18} />, label: 'Instagram', href: 'https://www.instagram.com/arcanists.umy' }
 ];
 
 export function Footer() {
@@ -40,7 +40,7 @@ export function Footer() {
             </a>
 
             <p className="text-xs md:text-sm text-neutral-500 leading-relaxed font-light px-4 md:px-0">
-              Securing the digital horizon through collaboration and technical excellence.
+              Learn together. Break together. Secure together.
             </p>
           </div>
 

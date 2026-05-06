@@ -23,6 +23,7 @@ import {
   Linkedin,
   Twitter,
   X,
+  CircleFadingPlus,
 } from 'lucide-react';
 
 
@@ -30,14 +31,15 @@ const MEMBERS = [
   {
     id: 1,
     nickname: 'K4lameety',
-    role: 'that simple',
+    role: 'that simple~',
     status: 'active',
     specializations: ['Web', 'Forensics'],
     joinedYear: '2025',
     avatarUrl: '/avatar/K4lameety.png',
     socials: [
       { icon: <Github size={16} />, url: 'https://github.com/K4lameety' },
-      { icon: <Globe size={16} />, url: 'https://k4lameety.github.io' }
+      { icon: <Globe size={16} />, url: 'https://k4lameety.github.io' },
+      { icon: <CircleFadingPlus size={16} />, url: 'https://www.instagram.com/rhkapota' },
     ]
   },
   {
@@ -48,7 +50,10 @@ const MEMBERS = [
     specializations: ['Crypto', 'Osint'],
     joinedYear: '2025',
     avatarUrl: '/avatar/Kaiser114.png',
-    socials: []
+    socials: [
+      { icon: <Github size={16} />, url: 'https://github.com/kaiser-114' },
+      { icon: <CircleFadingPlus size={16} />, url: 'https://www.instagram.com/vyudha_' },
+    ]
   },
   {
     id: 3,
@@ -64,6 +69,38 @@ const MEMBERS = [
       { icon: <Linkedin size={16} />, url: 'https://www.linkedin.com/in/muhammad-rayhan-widayat' }
     ]
   },
+  {
+  id: 4,
+  nickname: 'Baby Boy',
+  role: 'You are magic',
+  status: 'active',
+  specializations: ['Reverse', 'Web'],
+  joinedYear: '2025',
+  avatarUrl: '/avatar/BabyBoy.png',
+  socials: [
+    { icon: <Twitter size={16} />, url: 'https://x.com/wiraishero' }
+  ]
+},
+{
+  id: 5,
+  nickname: 'LrmIpsm',
+  role: 'Hanya Mahasiswa Biasa',
+  status: 'active',
+  specializations: ['Web'],
+  joinedYear: '2025',
+  avatarUrl: '/avatar/LrmIpsm.png',
+  socials: []
+},
+{
+  id: 6,
+  nickname: 'Daniel',
+  role: 'Securing the Digital Future',
+  status: 'active',
+  specializations: ['Web'],
+  joinedYear: '2025',
+  avatarUrl: '/avatar/avatar.png',
+  socials: []
+}
 ];
 
 

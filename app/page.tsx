@@ -12,11 +12,12 @@ const STATS = [
   { label: 'Active Since', value: '2025', icon: <Clock size={48} /> },
 ];
 
+
 const CORE_VALUES = [
-  { n: "01", t: "Expertise", d: "Continuously evolving and sharpening technical mastery without limits to master the digital landscape." },
-  { n: "02", t: "Collaboration", d: "Uniting diverse talents within a strategic hub to conquer every complex security challenge." },
-  { n: "03", t: "Innovation", d: "Developing creative solutions and proactive approaches to identify and mitigate modern vulnerabilities." },
-  { n: "04", t: "Integrity", d: "Upholding the highest ethical standards and professional conduct in every operation and research." }
+  { n: "01", t: "MASTERY", d: "We pursue depth over surface continuously refining our skills to understand, exploit, and secure complex systems." },
+  { n: "02", t: "COLLABORATION", d: "We work together, share knowledge, and grow as a team to tackle complex security challenges." },
+  { n: "03", t: "INGENUITY", d: "We think beyond conventions developing creative and adaptive approaches to uncover and mitigate modern vulnerabilities." },
+  { n: "04", t: "INTEGRITY", d: "We uphold strong ethical standards while encouraging open exploration and independent thinking in every experiment and research." }
 ];
 
 const TypingLogo = memo(({ text }: { text: string }) => {
@@ -69,7 +70,7 @@ export default function Home() {
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-orange-500"></span>
               </span>
               <span className="terminal-text text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-orange-200/70">
-                Capture The Flag
+                university community
               </span>
             </div>
 
@@ -85,7 +86,7 @@ export default function Home() {
               </p>
               <div className="text-xs md:text-lg text-neutral-400 max-w-2xl mx-auto leading-relaxed font-light px-4 md:px-0">
                 <p>
-                  Operating under the auspices of <span className="text-white font-medium">Forticode Club</span>, this community was founded by students of Universitas Muhammadiyah Yogyakarta, born out of a profound dedication to digital system integrity. We focus on developing technical expertise and security research to meet the challenges of an ever-evolving technological landscape.
+                  Born under the auspices of <span className="text-white font-medium">Forticode Club</span>, Arcanists is not just a community, but a proving ground. Founded by students of <span className="text-white font-medium">Universitas Muhammadiyah Yogyakarta</span>, we are here for those who seek more than just theory.
                 </p>
               </div>
             </div>
@@ -93,7 +94,7 @@ export default function Home() {
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6 md:pt-10 px-8 sm:px-0">
               <a href="/contact#recruitment" className="px-8 py-3 text-center text-orange-500 rounded-lg terminal-text text-xs md:text-sm font-bold glow-border hover:bg-orange-500/10 transition-colors">
-                Join Team
+                Join the Circle
               </a>
               <a href="#about" onClick={scrollToAbout} className="px-8 py-3 text-center text-white rounded-lg terminal-text text-xs md:text-sm font-bold border border-white/20 hover:bg-white/5 transition-all">
                 Learn More
@@ -126,18 +127,21 @@ export default function Home() {
               <div className="space-y-6 md:space-y-8">
                 <div className="space-y-4 md:space-y-6 text-sm md:text-lg text-neutral-400 leading-relaxed text-center md:text-left">
                   <p>
-                    At <span className="text-white font-medium">Arcanists</span>, we believe that cybersecurity is more than just lines of code—it is a mindset. As a collaborative hub, we are dedicated to bridging the gap between academic theory and the practical, real-world security challenges faced in the industry today.
+                    At <span className="text-white font-medium">Arcanists</span>, cybersecurity goes beyond theory. We focus on understanding how systems work in practice through testing, analysis, and real world scenarios.
                   </p>
                   <p>
-                    Through continuous research, Capture The Flag (CTF) simulations, and active knowledge sharing, we foster an ecosystem where technical sharpness meets ethical integrity. Our mission is to empower our members with the skills necessary to combat increasingly complex digital threats in an ever-evolving technological landscape.
+                    We combine academic knowledge with hands-on experience through CTF challenges, research, and collaborative learning. Our goal is to help members build strong technical foundations and practical skills.
+                  </p>
+                  <p>
+                    We aim to develop individuals who can think critically, work responsibly, and adapt to the constantly changing world of cybersecurity.
                   </p>
                 </div>
 
                 <div className="space-y-4 pt-6 border-t border-neutral-800">
                   {[
-                    "Regular CTF competitions at both national and international levels.",
-                    "In-depth research on the latest exploitation techniques and defensive strategies.",
-                    "Intensive mentoring for new members to sharpen their technical skills."
+                    "Engage in competitive CTFs at national and international levels",
+                    "Conduct deep research on exploitation techniques and defensive methodologies",
+                    "Provide structured mentoring to accelerate technical growth for new members"
                   ].map((text, i) => (
                     <div key={i} className="flex items-start gap-3 group">
                       <ArrowRight size={16} className="text-orange-500 mt-1 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
@@ -167,26 +171,32 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Stats Grid*/}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-8">
-              {STATS.map((stat, idx) => (
-                <div key={idx} className="group relative bg-neutral-900/30 border border-neutral-800 rounded-lg p-4 md:p-8 text-center hover:border-orange-500/50 transition-all duration-300 overflow-hidden">
-                  
-                  <div className="absolute -bottom-4 -right-4 opacity-[0.03] group-hover:opacity-[0.1] group-hover:text-orange-500 transition-all duration-700 pointer-events-none group-hover:rotate-12 group-hover:scale-110">
-                    {cloneElement(stat.icon as ReactElement, { size: 100 })}
-                  </div>
+                {/* Stats */}
+                <div className="flex justify-center">
+                  {STATS
+                    .filter((stat) => stat.label === 'Active Since')
+                    .map((stat, idx) => {
+                      return (
+                        <div
+                          key={idx}
+                          className="w-full max-w-xs group relative bg-neutral-900/30 border border-neutral-800 rounded-lg p-6 md:p-10 text-center hover:border-orange-500/50 transition-all duration-300 overflow-hidden"
+                        >
+                          <div className="absolute -bottom-4 -right-4 opacity-[0.03] group-hover:opacity-[0.1] group-hover:text-orange-500 transition-all duration-700 pointer-events-none group-hover:rotate-12 group-hover:scale-110">
+                            {cloneElement(stat.icon as ReactElement, { size: 100 })}
+                          </div>
 
-                  <div className="relative z-10">
-                    <div className="text-2xl md:text-5xl font-mono font-bold text-white mb-1 group-hover:text-orange-500 transition-colors">
-                      {stat.value}
-                    </div>
-                    <div className="text-[8px] md:text-xs text-neutral-500 uppercase tracking-widest">
-                      {stat.label}
-                    </div>
-                  </div>
+                          <div className="relative z-10">
+                            <div className="text-2xl md:text-5xl font-mono font-bold text-white mb-1 group-hover:text-orange-500 transition-colors">
+                              {stat.value}
+                            </div>
+                            <div className="text-[8px] md:text-xs text-neutral-500 uppercase tracking-widest">
+                              {stat.label}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
                 </div>
-              ))}
-            </div>
           </div>
         </section>
       </div>

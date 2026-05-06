@@ -13,21 +13,45 @@ import {
   Zap,
   Flag,
   Layers,
+  Sword,
   Shield
 } from 'lucide-react';
 
 const CONTESTS_LIST = [
+
+
+    {
+    year: '2026',
+    month: 'Mar',
+    event: 'picoCTF 2026',
+    result: '69 Flags Captured',
+    type: 'CTF',
+    format: 'Jeopardy',
+    icon: Trophy,
+    color: 'text-orange-400',
+    link: 'https://picoctf.org/competitions/2026-spring.html'
+  },
+  {
+    year: '2026',
+    month: 'Jan',
+    event: 'SIBER PENTEST 2026',
+    result: '7 Vulnerabilities Found',
+    type: 'Pentest',
+    format: 'Offensive Security',
+    icon: Sword,
+    color: 'text-red-500',
+    link: 'https://drive.google.com/file/d/1lZDjfzmUH5QfWhdj-R5yCDlIhBNvTjpt/view'
+  },
+
   {
     year: '2025',
     month: 'Dec',
     event: 'HTB: University CTF 2025 Tinsel Trouble',
-    placement: '126th Place',
-    points: '12700 pts',
-    flags: '31 Flags',
+    result: '31 Flags',
     format: 'Jeopardy',
     icon: Trophy,
     color: 'text-orange-400',
-    ctftime: 'https://ctf.hackthebox.com/event/details/university-ctf-2025-tinsel-trouble-2993'
+    link: 'https://ctf.hackthebox.com/event/details/university-ctf-2025-tinsel-trouble-2993'
   }
 ];
 
@@ -61,7 +85,7 @@ export default function ContestsPage() {
 
         <div className="relative z-10 space-y-4 max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-8xl font-black tracking-tighter text-white uppercase leading-none">
-            Hall of <span className="text-orange-500">Fame</span>
+            Security <span className="text-orange-500">Journey</span>
           </h1>
           <p className="text-xs md:text-xl text-orange-400 font-bold tracking-[0.2em] uppercase">
             Our journey through national and international challenges
@@ -81,95 +105,60 @@ export default function ContestsPage() {
             {CONTESTS_LIST.map((contest, idx) => {
               const IconComponent = contest.icon;
               return (
-                <a
-                  key={idx}
-                  href={contest.ctftime}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block bg-neutral-900/20 border border-neutral-800/50 rounded-xl md:rounded-2xl p-5 md:p-7 hover:border-orange-500/40 hover:bg-orange-500/[0.03] transition-all duration-300 [transform:translateZ(0)]"
-                >
-                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-                    
-                    {/* Basic Info */}
-                    <div className="flex gap-4 md:gap-6 items-start">
-                      <div className={`flex-shrink-0 p-3 bg-neutral-900 border border-neutral-800 rounded-xl group-hover:border-orange-500/30 transition-colors ${contest.color}`}>
-                        <IconComponent size={24} />
-                      </div>
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-2">
-                          <span className="terminal-text text-[8px] md:text-[9px] uppercase tracking-widest text-neutral-500 bg-neutral-800/50 px-2 py-0.5 rounded">
-                            {contest.month} {contest.year}
-                          </span>
-                          <span className="flex items-center gap-1 text-[8px] md:text-[9px] uppercase tracking-widest text-orange-500/70">
-                            <Layers size={10} /> {contest.format}
-                          </span>
-                        </div>
-                        <h3 className="text-base md:text-xl font-bold text-white group-hover:text-orange-500 transition-colors flex items-center gap-2">
-                          {contest.event}
-                          <ExternalLink size={14} className="opacity-0 group-hover:opacity-50 transition-opacity" />
-                        </h3>
-                      </div>
+              <a
+                key={idx}
+                href={contest.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block bg-neutral-900/20 border border-neutral-800/50 rounded-xl md:rounded-2xl p-5 md:p-7 hover:border-orange-500/40 hover:bg-orange-500/[0.03] transition-all duration-300 [transform:translateZ(0)]"
+              >
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                  
+                  {/* LEFT: Basic Info */}
+                  <div className="flex gap-4 md:gap-6 items-start">
+                    <div className={`flex-shrink-0 p-3 bg-neutral-900 border border-neutral-800 rounded-xl group-hover:border-orange-500/30 transition-colors ${contest.color}`}>
+                      <IconComponent size={24} />
                     </div>
 
-                    {/* Detailed Stats */}
-                    <div className="grid grid-cols-3 md:flex md:items-center md:justify-end gap-4 md:gap-12 border-t border-neutral-800/50 lg:border-none pt-5 lg:pt-0 text-left md:text-right">
-                      <div className="space-y-1">
-                        <p className="text-[8px] md:text-[10px] uppercase tracking-[0.2em] text-neutral-500 terminal-text">Placement</p>
-                        <p className={`text-sm md:text-lg font-bold font-mono ${contest.color}`}>
-                          {contest.placement}
-                        </p>
-                      </div>
-                      
-                      <div className="space-y-1">
-                        <p className="text-[8px] md:text-[10px] uppercase tracking-[0.2em] text-neutral-500 terminal-text">Score</p>
-                        <p className="text-sm md:text-lg font-bold font-mono text-white">
-                          {contest.points}
-                        </p>
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <span className="terminal-text text-[8px] md:text-[9px] uppercase tracking-widest text-neutral-500 bg-neutral-800/50 px-2 py-0.5 rounded">
+                          {contest.month} {contest.year}
+                        </span>
+                        <span className="flex items-center gap-1 text-[8px] md:text-[9px] uppercase tracking-widest text-orange-500/70">
+                          <Layers size={10} /> {contest.format}
+                        </span>
                       </div>
 
-                      <div className="space-y-1">
-                        <p className="text-[8px] md:text-[10px] uppercase tracking-[0.2em] text-neutral-500 terminal-text flex items-center justify-start md:justify-end gap-1">
-                          Captured
-                        </p>
-                        <p className="text-sm md:text-lg font-bold font-mono text-white flex items-center justify-start md:justify-end gap-1.5 group-hover:text-orange-400 transition-colors">
-                          <Flag size={14} className="text-orange-500" />
-                          {contest.flags}
-                        </p>
-                      </div>
-
-                      <div className="hidden lg:block ml-4">
-                         <ChevronRight size={20} className="text-neutral-700 group-hover:text-orange-500 group-hover:translate-x-1 transition-all" />
-                      </div>
+                      <h3 className="text-base md:text-xl font-bold text-white group-hover:text-orange-500 transition-colors flex items-center gap-2">
+                        {contest.event}
+                        <ExternalLink size={14} className="opacity-0 group-hover:opacity-50 transition-opacity" />
+                      </h3>
                     </div>
                   </div>
-                </a>
+
+                  {/* RIGHT: Flags Only */}
+                  <div className="flex items-center gap-4 border-t border-neutral-800/50 lg:border-none pt-5 lg:pt-0">
+                    <div className="space-y-1 text-left md:text-right">
+                      <p className="text-[8px] md:text-[10px] uppercase tracking-[0.2em] text-neutral-500 terminal-text">
+                        Result
+                      </p>
+                      <p className="text-sm md:text-lg font-bold font-mono text-white flex items-center gap-1.5 group-hover:text-orange-400 transition-colors">
+                        <Flag size={14} className="text-orange-500" />
+                        {contest.result}
+                      </p>
+                    </div>
+
+                    <ChevronRight size={20} className="text-neutral-700 group-hover:text-orange-500 group-hover:translate-x-1 transition-all hidden lg:block" />
+                  </div>
+
+                </div>
+              </a>
               );
             })}
           </div>
 
-          {/* Overall Stats Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-16 md:mt-24">
-            {OVERALL_STATS.map((stat, i) => (
-              <div
-                key={i}
-                className="relative overflow-hidden bg-neutral-900/30 border border-neutral-800 rounded-xl md:rounded-2xl p-6 md:p-10 text-center space-y-3 transition-all duration-500 group hover:border-orange-500/50 hover:bg-orange-500/[0.02] [transform:translateZ(0)]"
-              >
-                <div className="absolute -top-4 -right-4 opacity-[0.02] group-hover:opacity-[0.08] group-hover:text-orange-500 group-hover:-rotate-12 transition-all duration-700 pointer-events-none will-change-transform">
-                  {stat.icon}
-                </div>
-                
-                <div className="relative z-10">
-                  <div className="text-3xl md:text-5xl lg:text-7xl font-black text-white group-hover:text-orange-500 transition-colors duration-500">
-                    {stat.value}
-                  </div>
-                  <div className="h-[1px] w-8 bg-neutral-800 mx-auto group-hover:bg-orange-500/30 transition-colors duration-500 my-2"></div>
-                  <p className="text-[8px] md:text-[9px] uppercase tracking-[0.3em] terminal-text font-bold text-neutral-500 group-hover:text-orange-200/50 transition-colors duration-500">
-                    {stat.label}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+
         </div>
       </section>
       
