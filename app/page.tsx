@@ -63,16 +63,6 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-orange-500/10 rounded-full blur-[100px] pointer-events-none will-change-[filter]" />
 
           <div className="relative z-10 text-center space-y-6 md:space-y-8 max-w-5xl w-full">
-            {/* Tagline */}
-            <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-orange-500/20 bg-orange-500/5 mb-2 group">
-              <span className="relative flex h-1.5 w-1.5 ml-0.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-orange-500"></span>
-              </span>
-              <span className="terminal-text text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-orange-200/70">
-                university community
-              </span>
-            </div>
 
             {/* Title */}
             <div className="py-2">

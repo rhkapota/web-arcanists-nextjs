@@ -31,7 +31,7 @@ const MEMBERS = [
   {
     id: 1,
     nickname: 'K4lameety',
-    role: 'that simple~',
+    role: 'That simple~',
     status: 'active',
     specializations: ['Web', 'Forensics'],
     joinedYear: '2025',
@@ -45,7 +45,7 @@ const MEMBERS = [
   {
     id: 2,
     nickname: 'Kaiser114',
-    role: 'money oriented',
+    role: 'Money oriented',
     status: 'active',
     specializations: ['Crypto', 'Osint'],
     joinedYear: '2025',
@@ -98,7 +98,31 @@ const MEMBERS = [
   status: 'active',
   specializations: ['Web'],
   joinedYear: '2025',
-  avatarUrl: '/avatar/avatar.png',
+  avatarUrl: '/avatar/Avatar.webp',
+  socials: [
+    { icon: <Github size={16} />, url: 'https://github.com/chakerox' },
+  ]
+},
+{
+  id: 7,
+  nickname: 'youhav3me',
+  role: '"Long story short, I Survived" -Taylor Swift',
+  status: 'active',
+  specializations: [],
+  joinedYear: '2025',
+  avatarUrl: '/avatar/Youhav3me.png',
+  socials: [
+    { icon: <Github size={16} />, url: 'https://github.com/chakerox' },
+  ]
+},
+{
+  id: 8,
+  nickname: 'z4phkiel',
+  role: ' Mari kita mulai permainan kita',
+  status: 'active',
+  specializations: ['Pwn'],
+  joinedYear: '2025',
+  avatarUrl: '/avatar/Z4phkiel.png',
   socials: []
 }
 ];
