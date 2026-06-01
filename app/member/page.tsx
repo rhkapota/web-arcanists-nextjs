@@ -31,15 +31,14 @@ const MEMBERS = [
   {
     id: 1,
     nickname: 'K4lameety',
-    role: 'That simple~',
+    role: '',
     status: 'active',
     specializations: ['Web', 'Forensics'],
     joinedYear: '2025',
     avatarUrl: '/avatar/K4lameety.png',
     socials: [
       { icon: <Github size={16} />, url: 'https://github.com/K4lameety' },
-      { icon: <Globe size={16} />, url: 'https://k4lameety.github.io' },
-      { icon: <CircleFadingPlus size={16} />, url: 'https://www.instagram.com/rhkapota' },
+      { icon: <Globe size={16} />, url: 'https://k4lameety.github.io' }
     ]
   },
   {
@@ -123,6 +122,15 @@ const MEMBERS = [
   specializations: ['Pwn'],
   joinedYear: '2025',
   avatarUrl: '/avatar/Z4phkiel.png',
+  socials: []
+},
+{ id: 9,
+  nickname: 'Neferpit0u',
+  role: 'Join CySec first, being skilled is optional',
+  status: 'active',
+  specializations: ['Web', 'Crypto'],
+  joinedYear: '2024',
+  avatarUrl: '/avatar/Neferpit0u.png',
   socials: []
 }
 ];
