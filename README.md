@@ -1,26 +1,29 @@
-## 🛠️ Tech Stack
-
-- **Framework**: Next.js 16.2.0
-- **UI Library**: React 19.2.4
-- **Styling**: Tailwind CSS 4.2.0
-- **Icons**: Lucide React
-- **Typography**: Geist Font Family
-- **Animations**: Custom CSS animations and transitions
-
-## 🚀 Getting Started
+<h1 align="center">
+   <b>Arcanists Portofolio</b>
+</h1>
+<p align="center">
+   <a href="https://nextjs.org" target="_blank">
+      <img src="https://img.shields.io/badge/Next.js-000?logo=nextdotjs" alt="Next.js">
+   </a>
+   <a href="https://react.dev" target="_blank">
+      <img src="https://img.shields.io/badge/React-20232A?logo=react" alt="React">
+   </a>
+   <a href="https://tailwindcss.com" target="_blank">
+      <img src="https://img.shields.io/badge/Tailwind-4-38B2AC?logo=tailwindcss" alt="Tailwindcss">
+   </a>
+</p>
+<p align="center">Official static portfolio website of the Arcanists cybersecurity team, built with Next.js</p>
+      
+### Installation
 
 1. **Install Dependencies**
    ```bash
    npm install
-   # or
-   pnpm install
    ```
 
 2. **Run Development Server**
    ```bash
    npm run dev
-   # or
-   pnpm dev
    ```
 
 3. **Open Browser**
@@ -32,29 +35,14 @@
    npm run start
    ```
 
-## 🌐 Deployment
-
-### Deploy to Vercel (Recommended)
-
-1. Push code to GitHub
-2. Connect repo to Vercel
-3. Deploy automatically on push
-
-### Deploy Elsewhere
-
-```bash
-npm run build
-# Deploy the `.next` folder
-```
-
-## 📚 Resources
+### Resources
 
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Tailwind CSS](https://tailwindcss.com)
 - [React Documentation](https://react.dev)
 - [Lucide Icons](https://lucide.dev)
 
-## 🤝 Contributing
+### Contributing
 
 To add new features or improve the design:
 
@@ -63,10 +51,6 @@ To add new features or improve the design:
 3. Test responsive design
 4. Submit a pull request
 
-## 📄 License
+### License
 
 This project is open source and available under the MIT License.
-
-## 📧 Support
-
-For questions or issues, contact the team through the Discord link in the footer or via GitHub issues.
