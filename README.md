@@ -46,10 +46,11 @@
 
 To add new features or improve the design:
 
-1. Create a new branch
-2. Make your changes
-3. Test responsive design
-4. Submit a pull request
+1. Fork this repo
+2. Create a new branch
+3. Make your changes
+4. Test responsive design
+5. Submit a pull request
 
 ### License
 
