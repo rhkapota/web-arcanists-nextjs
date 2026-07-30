@@ -78,8 +78,14 @@
   * {
     @apply border-border outline-ring/50;
   }
+  /* Black lives on <html>, not <body>, so the ember canvas (a body child at
+     -z-10) keeps painting even if <body> ever gains a stacking context. */
+  html {
+    @apply bg-background;
+  }
   body {
-    @apply bg-background text-foreground transition-colors duration-300;
+    @apply text-foreground transition-colors duration-300;
+    background-color: transparent;
   }
 }
 
@@ -109,16 +115,8 @@
   }
 }
 
-@keyframes typing { from { width: 0; } to { width: 100%; } }
-@keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
-
-.typing-animation {
-  animation: typing 0.8s steps(30, end), blink 0.5s infinite;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 2px solid #f97316;
-}
-
+/* Kept and reused: the intro gate fires this for ~200ms at the ignite beat,
+   so the phoenix flickers in slices like a digital ignition. */
 @keyframes glitch {
   0% { clip-path: inset(40% 0 61% 0); transform: translate(0); }
   20% { clip-path: inset(92% 0 1% 0); transform: translate(-2px, 2px); }
@@ -128,31 +126,131 @@
   100% { clip-path: inset(58% 0 43% 0); transform: translate(0); }
 }
 
-.glitch {
-  position: relative;
-  animation: glitch 0.3s infinite;
+#arc-gate {
+  display: none;
 }
 
-.glitch::before {
-  content: attr(data-text);
-  position: absolute;
-  left: 2px;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  color: #ffffff;
-  animation: glitch 0.3s infinite;
-  clip-path: inset(0 0 0 0);
+html.arc-intro,
+html.arc-intro body {
+  overflow: hidden;
 }
 
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  left: -2px;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  color: #f97316;
-  animation: glitch 0.3s infinite;
-  clip-path: inset(0 0 0 0);
+html.arc-intro #arc-gate {
+  display: block;
 }
+
+html.arc-intro body > main {
+  visibility: hidden;
+}
+
+@keyframes arc-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+.arc-phoenix path {
+  stroke: #f97316;
+  fill: none;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  filter: drop-shadow(0 0 5px rgba(249, 115, 22, 0.45));
+  animation: arc-draw 700ms cubic-bezier(0.35, 0.6, 0.25, 1) var(--arc-delay, 0ms) forwards;
+}
+
+@keyframes arc-phoenix-out {
+  0% { opacity: 1; filter: drop-shadow(0 0 6px rgba(249, 115, 22, 0.5)); }
+  35% { opacity: 1; filter: drop-shadow(0 0 26px rgba(255, 255, 255, 0.9)); }
+  100% { opacity: 0; filter: drop-shadow(0 0 26px rgba(255, 255, 255, 0)); }
+}
+
+.arc-phoenix {
+  animation:
+    arc-phoenix-out 700ms ease-out 1400ms forwards,
+    glitch 120ms steps(2, end) 1400ms 2;
+}
+
+@keyframes arc-ignite-in {
+  0% { opacity: 0; transform: scale(0.94); filter: brightness(2.4) saturate(0.3); }
+  60% { opacity: 1; transform: scale(1.02); filter: brightness(1.3) saturate(1); }
+  100% { opacity: 1; transform: scale(1); filter: brightness(1) saturate(1); }
+}
+
+.arc-ignite {
+  opacity: 0;
+  animation: arc-ignite-in 800ms cubic-bezier(0.2, 0.7, 0.3, 1) 1450ms forwards;
+}
+
+@keyframes arc-shock {
+  from { opacity: 0.75; transform: scale(0.15); }
+  to { opacity: 0; transform: scale(9); }
+}
+
+.arc-shock {
+  opacity: 0;
+  animation: arc-shock 900ms cubic-bezier(0.1, 0.8, 0.2, 1) 1800ms forwards;
+}
+
+/* The mark clears out as the doors part, so it never lingers over the hero. */
+@keyframes arc-mark-out {
+  to { opacity: 0; transform: scale(1.12); }
+}
+
+.arc-mark {
+  animation: arc-mark-out 600ms ease-in 2450ms forwards;
+}
+
+@keyframes arc-door-l {
+  to { transform: translateX(-101%); }
+}
+
+@keyframes arc-door-r {
+  to { transform: translateX(101%); }
+}
+
+.arc-door-l {
+  animation: arc-door-l 780ms cubic-bezier(0.7, 0, 0.2, 1) 2500ms forwards;
+}
+
+.arc-door-r {
+  animation: arc-door-r 780ms cubic-bezier(0.7, 0, 0.2, 1) 2500ms forwards;
+}
+
+@keyframes arc-seam {
+  0% { opacity: 0; transform: translateX(-50%) scaleY(0); }
+  30% { opacity: 1; transform: translateX(-50%) scaleY(1); }
+  100% { opacity: 0; transform: translateX(-50%) scaleY(1); }
+}
+
+.arc-seam {
+  opacity: 0;
+  box-shadow: 0 0 24px 4px rgba(249, 115, 22, 0.75);
+  animation: arc-seam 900ms ease-out 2420ms forwards;
+}
+
+@keyframes arc-skip-in {
+  to { opacity: 1; }
+}
+
+.arc-skip {
+  opacity: 0;
+  animation: arc-skip-in 600ms ease-out 900ms forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #arc-embers {
+    display: none;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: auto 0 0 0;
+    height: 45vh;
+    z-index: -10;
+    pointer-events: none;
+    background: radial-gradient(120% 100% at 50% 120%, rgba(249, 115, 22, 0.13), transparent 70%);
+  }
+}
+

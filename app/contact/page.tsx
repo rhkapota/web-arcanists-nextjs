@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
+import { BackdropFX } from '@/components/BackdropFX';
 import { 
   Mail, Users, Image, ChevronRight, Clock, Shield, Target, Zap, Globe, CircleFadingPlus, ArrowRight 
 } from 'lucide-react';
@@ -31,8 +32,8 @@ const CONTACT_CARDS = [
     bgIcon: <Image size={120} />,
     title: "Instagram", 
     desc: "Documentation & Media", 
-    link: "instagram.com/arcanist.umy", 
-    href: "https://www.instagram.com/arcanist.umy" 
+    link: "instagram.com/arcanists.umy",
+    href: "https://www.instagram.com/arcanists.umy"
   }
 ];
 
@@ -52,13 +53,12 @@ const PROCESS_STEPS = [
 export default function ContactPage() {
   const [showModal, setShowModal] = useState(false);
   return (
-    <main className="w-full bg-black text-white overflow-x-hidden selection:bg-orange-500/30">
+    <main className="w-full text-white overflow-x-hidden selection:bg-orange-500/30">
       <Navigation />
       
       {/* Hero Section */}
       <section className="relative min-h-[450px] md:min-h-[550px] w-full flex flex-col items-center justify-center overflow-hidden px-6 py-20 md:py-32 mt-16 [transform:translateZ(0)]">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] md:bg-[size:60px_60px] pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-orange-500/10 rounded-full blur-[80px] md:blur-[120px] pointer-events-none opacity-60 will-change-[filter]" />
+        <BackdropFX grid="hero" glow="warm" />
 
         <div className="relative z-10 text-center space-y-4 md:space-y-6 max-w-3xl">
           <h1 className="font-mono text-4xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white uppercase leading-none">
@@ -71,7 +71,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="relative w-full pb-20 px-6 md:px-12 bg-black">
+      <section className="relative w-full pb-20 px-6 md:px-12 bg-black/60">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-20">
             {CONTACT_CARDS.map((item, i) => (
@@ -96,7 +96,7 @@ export default function ContactPage() {
       </section>
 
       {/* Recruitment Section */}
-      <section id="recruitment" className="relative w-full py-16 md:py-24 px-6 md:px-12 border-t border-neutral-900 bg-black">
+      <section id="recruitment" className="relative w-full py-16 md:py-24 px-6 md:px-12 border-t border-neutral-900 bg-black/70">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 md:mb-20 space-y-3 md:space-y-4">
             <h2 className="font-mono text-3xl md:text-6xl font-black tracking-tighter text-white uppercase leading-tight">

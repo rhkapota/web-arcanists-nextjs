@@ -3,9 +3,10 @@
 import { useEffect, useState, memo, cloneElement, ReactElement } from 'react';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
-import { ArrowRight, Trophy, Users, Target, Clock, Shield } from 'lucide-react';
+import { BackdropFX } from '@/components/BackdropFX';
+import { ArrowRight, Trophy, Users, Target, Clock, Shield, type LucideProps } from 'lucide-react';
 
-const STATS = [
+const STATS: { label: string; value: string; icon: ReactElement<LucideProps> }[] = [
   { label: 'Competitions', value: '1', icon: <Trophy size={48} /> },
   { label: 'Members', value: '18', icon: <Users size={48} /> },
   { label: 'Challenges Solved', value: '18', icon: <Target size={48} /> },
@@ -51,16 +52,15 @@ export default function Home() {
   };
 
   return (
-    <main className="w-full min-h-screen bg-black text-white overflow-x-hidden selection:bg-orange-500/30">
+    <main className="w-full min-h-screen text-white overflow-x-hidden selection:bg-orange-500/30">
       <Navigation />
       
       <div className="relative">
         {/* Hero Section */}
-        <section className="relative min-h-screen w-full flex flex-col items-center justify-start pt-32 md:pt-0 md:justify-center overflow-hidden px-6 bg-black [transform:translateZ(0)]">
+        <section className="relative min-h-screen w-full flex flex-col items-center justify-start pt-32 md:pt-0 md:justify-center overflow-hidden px-6 [transform:translateZ(0)]">
           
           {/* Background Grids*/}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-orange-500/10 rounded-full blur-[100px] pointer-events-none will-change-[filter]" />
+          <BackdropFX grid="hero" glow="hot" />
 
           <div className="relative z-10 text-center space-y-6 md:space-y-8 max-w-5xl w-full">
 
@@ -104,7 +104,7 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="scroll-mt-20 relative w-full py-16 md:py-24 px-6 md:px-12 bg-black z-10 [transform:translateZ(0)]">
+        <section id="about" className="scroll-mt-20 relative w-full py-16 md:py-24 px-6 md:px-12 bg-black/70 z-10 [transform:translateZ(0)]">
           <div className="max-w-6xl mx-auto relative z-10">
             <div className="mb-12 md:mb-20 space-y-3 md:space-y-4">
               <h2 className="text-3xl md:text-6xl font-mono font-bold text-white tracking-tighter uppercase text-center md:text-left">
@@ -172,7 +172,7 @@ export default function Home() {
                           className="w-full max-w-xs group relative bg-neutral-900/30 border border-neutral-800 rounded-lg p-6 md:p-10 text-center hover:border-orange-500/50 transition-all duration-300 overflow-hidden"
                         >
                           <div className="absolute -bottom-4 -right-4 opacity-[0.03] group-hover:opacity-[0.1] group-hover:text-orange-500 transition-all duration-700 pointer-events-none group-hover:rotate-12 group-hover:scale-110">
-                            {cloneElement(stat.icon as ReactElement, { size: 100 })}
+                            {cloneElement(stat.icon, { size: 100 })}
                           </div>
 
                           <div className="relative z-10">
