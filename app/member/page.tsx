@@ -3,6 +3,7 @@
 import { memo, cloneElement, ReactElement } from 'react';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
+import { BackdropFX } from '@/components/BackdropFX';
 import { 
   Users, 
   ShieldCheck, 
@@ -24,6 +25,7 @@ import {
   Twitter,
   X,
   CircleFadingPlus,
+  type LucideProps,
 } from 'lucide-react';
 
 
@@ -136,7 +138,9 @@ const MEMBERS = [
 ];
 
 
-const SPECS_CONFIG: Record<string, { style: string; icon: React.ReactNode }> = {
+// Typed as lucide elements rather than plain nodes so the cloneElement call
+// below can actually be checked when it overrides `size`.
+const SPECS_CONFIG: Record<string, { style: string; icon: ReactElement<LucideProps> }> = {
   'Web': { style: 'bg-blue-600 border-blue-400 text-white', icon: <Globe size={14} /> },
   'Osint': { style: 'bg-orange-600 border-orange-400 text-white', icon: <Eye size={14} /> },
   'Pwn': { style: 'bg-red-600 border-red-400 text-white', icon: <Binary size={14} /> },
@@ -170,13 +174,12 @@ SpecializationBadge.displayName = 'SpecializationBadge';
 
 export default function TeamPage() {
   return (
-    <main className="w-full bg-black text-white overflow-x-hidden font-mono selection:bg-orange-500/30">
+    <main className="w-full text-white overflow-x-hidden font-mono selection:bg-orange-500/30">
       <Navigation />
       
       {/* Header Section */}
       <section className="relative min-h-[250px] md:min-h-[500px] w-full flex flex-col items-center justify-center overflow-hidden px-6 py-10 md:py-20 mt-8 md:mt-16 text-center [transform:translateZ(0)]">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:30px_30px] md:bg-[size:60px_60px] pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-orange-500/10 rounded-full blur-[80px] md:blur-[120px] pointer-events-none opacity-40 will-change-[filter]" />
+        <BackdropFX grid="hero" glow="warm" />
 
         <div className="absolute left-10 xl:left-20 top-1/2 -translate-y-1/2 hidden lg:block opacity-[0.05] pointer-events-none">
           <Users size={180} />
@@ -194,7 +197,7 @@ export default function TeamPage() {
       </section>
 
       {/* Members Section */}
-      <section className="relative w-full py-16 px-6 md:px-12 bg-black border-t border-neutral-900 [transform:translateZ(0)]">
+      <section className="relative w-full py-16 px-6 md:px-12 bg-black/70 border-t border-neutral-900 [transform:translateZ(0)]">
         <div className="max-w-7xl mx-auto relative z-10">
           
           <div className="mb-12 md:mb-20 space-y-3 md:space-y-4 text-left">
@@ -214,7 +217,7 @@ export default function TeamPage() {
                 >
                   {specConfig && (
                     <div className="absolute -bottom-6 -right-6 opacity-[0.03] group-hover:opacity-[0.12] group-hover:text-orange-500 transition-all duration-700 pointer-events-none will-change-transform group-hover:rotate-12 group-hover:scale-110">
-                      {cloneElement(specConfig.icon as ReactElement, { size: 140 })}
+                      {cloneElement(specConfig.icon, { size: 140 })}
                     </div>
                   )}
 

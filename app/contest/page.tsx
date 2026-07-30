@@ -3,6 +3,7 @@
 import { memo } from 'react';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
+import { BackdropFX } from '@/components/BackdropFX';
 import { 
   Trophy, 
   ChevronRight, 
@@ -64,16 +65,13 @@ const OVERALL_STATS = [
 
 export default function ContestsPage() {
   return (
-    <main className="w-full bg-black text-white overflow-x-hidden font-mono selection:bg-orange-500/30">
+    <main className="w-full text-white overflow-x-hidden font-mono selection:bg-orange-500/30">
       <Navigation />
       
       {/* Hero Section */}
       <section className="relative min-h-[250px] md:min-h-[500px] w-full flex flex-col items-center justify-center overflow-hidden px-6 py-10 md:py-32 mt-8 md:mt-16 text-center [transform:translateZ(0)]">
-        {/* Background Grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:30px_30px] md:bg-[size:60px_60px] pointer-events-none" />
-        
-        {/* Glow Element */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-orange-500/10 rounded-full blur-[80px] md:blur-[120px] pointer-events-none opacity-40 will-change-[filter]" />
+        {/* Background Grid + Glow */}
+        <BackdropFX grid="hero" glow="warm" />
 
         {/* Side Icons */}
         <div className="absolute left-10 xl:left-20 top-1/2 -translate-y-1/2 hidden lg:block opacity-[0.05] pointer-events-none">
@@ -94,7 +92,7 @@ export default function ContestsPage() {
       </section>
 
       {/* Contest List Section */}
-      <section className="relative w-full py-16 md:py-24 px-6 md:px-12 bg-black border-t border-neutral-900">
+      <section className="relative w-full py-16 md:py-24 px-6 md:px-12 bg-black/70 border-t border-neutral-900">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="mb-12 md:mb-20 space-y-3 md:space-y-4 text-left">
             <h2 className="text-3xl md:text-6xl font-black uppercase tracking-tighter">Contests</h2>
