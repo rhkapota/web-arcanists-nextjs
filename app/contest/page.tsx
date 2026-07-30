@@ -14,8 +14,9 @@ import {
   Zap,
   Flag,
   Layers,
-  Sword,
-  Shield
+  Swords,
+  Shield,
+  Puzzle
 } from 'lucide-react';
 
 const CONTESTS_LIST = [
@@ -28,18 +29,18 @@ const CONTESTS_LIST = [
     result: '69 Flags Captured',
     type: 'CTF',
     format: 'Jeopardy',
-    icon: Trophy,
+    icon: Puzzle,
     color: 'text-orange-400',
-    link: 'https://picoctf.org/competitions/2026-spring.html'
+    link: 'https://learn.cylabacademy.org/events/79'
   },
   {
     year: '2026',
     month: 'Jan',
     event: 'SIBER PENTEST 2026',
-    result: '7 Vulnerabilities Found',
+    result: '7 Vulns Found',
     type: 'Pentest',
     format: 'Offensive Security',
-    icon: Sword,
+    icon: Swords,
     color: 'text-red-500',
     link: 'https://drive.google.com/file/d/1lZDjfzmUH5QfWhdj-R5yCDlIhBNvTjpt/view'
   },
@@ -48,19 +49,12 @@ const CONTESTS_LIST = [
     year: '2025',
     month: 'Dec',
     event: 'HTB: University CTF 2025 Tinsel Trouble',
-    result: '31 Flags',
+    result: '31 Flags Captured',
     format: 'Jeopardy',
-    icon: Trophy,
+    icon: Puzzle,
     color: 'text-orange-400',
     link: 'https://ctf.hackthebox.com/event/details/university-ctf-2025-tinsel-trouble-2993'
   }
-];
-
-const OVERALL_STATS = [
-  { label: 'Competitions', value: '1', icon: <Globe size={120} /> },
-  { label: 'Challenges Solved', value: '18', icon: <Target size={120} /> },
-  { label: 'Flag Captures', value: '31', icon: <Zap size={120} /> },
-  { label: 'Data Points', value: '12.7K', icon: <Activity size={120} /> },
 ];
 
 export default function ContestsPage() {
@@ -78,7 +72,7 @@ export default function ContestsPage() {
           <Trophy size={180} className="text-white" />
         </div>
         <div className="absolute right-10 xl:right-20 top-1/2 -translate-y-1/2 hidden lg:block opacity-[0.05] pointer-events-none">
-          <Shield size={180} className="text-orange-500" />
+          <Flag size={180} className="text-orange-500" />
         </div>
 
         <div className="relative z-10 space-y-4 max-w-4xl mx-auto">
@@ -114,7 +108,7 @@ export default function ContestsPage() {
                   
                   {/* LEFT: Basic Info */}
                   <div className="flex gap-4 md:gap-6 items-start">
-                    <div className={`flex-shrink-0 p-3 bg-neutral-900 border border-neutral-800 rounded-xl group-hover:border-orange-500/30 transition-colors ${contest.color}`}>
+                    <div className={`flex-shrink-0 p-3 bg-neutral-900 rounded-xl transition-colors ${contest.color}`}>
                       <IconComponent size={24} />
                     </div>
 

@@ -23,8 +23,7 @@ import {
   Binary,
   Linkedin,
   Twitter,
-  X,
-  CircleFadingPlus,
+  Instagram,
   type LucideProps,
 } from 'lucide-react';
 
@@ -33,14 +32,13 @@ const MEMBERS = [
   {
     id: 1,
     nickname: 'K4lameety',
-    role: '',
+    role: 'We use dollar',
     status: 'active',
     specializations: ['Web', 'Forensics'],
     joinedYear: '2025',
     avatarUrl: '/avatar/K4lameety.png',
     socials: [
-      { icon: <Github size={16} />, url: 'https://github.com/K4lameety' },
-      { icon: <Globe size={16} />, url: 'https://k4lameety.github.io' }
+      { icon: <Github size={16} />, url: 'https://github.com/rhkapota' }
     ]
   },
   {
@@ -53,7 +51,7 @@ const MEMBERS = [
     avatarUrl: '/avatar/Kaiser114.png',
     socials: [
       { icon: <Github size={16} />, url: 'https://github.com/kaiser-114' },
-      { icon: <CircleFadingPlus size={16} />, url: 'https://www.instagram.com/vyudha_' },
+      { icon: <Instagram size={16} />, url: 'https://www.instagram.com/vyudha_' },
     ]
   },
   {
@@ -75,7 +73,7 @@ const MEMBERS = [
   nickname: 'Baby Boy',
   role: 'You are magic',
   status: 'active',
-  specializations: ['Reverse', 'Web'],
+  specializations: ['Web', 'Reverse'],
   joinedYear: '2025',
   avatarUrl: '/avatar/BabyBoy.png',
   socials: [
@@ -87,7 +85,7 @@ const MEMBERS = [
   nickname: 'LrmIpsm',
   role: 'Hanya Mahasiswa Biasa',
   status: 'active',
-  specializations: ['Web'],
+  specializations: ['Misc', 'Web'],
   joinedYear: '2025',
   avatarUrl: '/avatar/LrmIpsm.png',
   socials: []
@@ -97,7 +95,7 @@ const MEMBERS = [
   nickname: 'Daniel',
   role: 'Securing the Digital Future',
   status: 'active',
-  specializations: ['Web'],
+  specializations: ['Misc','Web'],
   joinedYear: '2025',
   avatarUrl: '/avatar/Avatar.webp',
   socials: [
@@ -109,19 +107,17 @@ const MEMBERS = [
   nickname: 'youhav3me',
   role: '"Long story short, I Survived" -Taylor Swift',
   status: 'active',
-  specializations: [],
+  specializations: ['Misc'],
   joinedYear: '2025',
   avatarUrl: '/avatar/Youhav3me.png',
-  socials: [
-    { icon: <Github size={16} />, url: 'https://github.com/chakerox' },
-  ]
+  socials: []
 },
 {
   id: 8,
   nickname: 'z4phkiel',
   role: ' Mari kita mulai permainan kita',
   status: 'active',
-  specializations: ['Pwn'],
+  specializations: ['Misc', 'Pwn'],
   joinedYear: '2025',
   avatarUrl: '/avatar/Z4phkiel.png',
   socials: []
@@ -236,7 +232,7 @@ export default function TeamPage() {
 
                       <div className="flex gap-2">
                         {member.socials.map((social, sIdx) => (
-                          <a key={sIdx} href={social.url} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-neutral-800 border border-neutral-700 rounded-xl text-neutral-400 hover:text-orange-500 hover:border-orange-500/50 transition-all active:scale-90">
+                          <a key={sIdx} href={social.url} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-orange-500 hover:border-orange-500/50 hover:bg-orange-500/5 rounded-xl transition-all duration-300 active:scale-90">
                             {social.icon}
                           </a>
                         ))}

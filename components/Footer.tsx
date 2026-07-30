@@ -1,7 +1,7 @@
 'use client';
 
 import { memo } from 'react';
-import { Mail, ArrowRight, CircleFadingPlus, Users } from 'lucide-react';
+import { Mail, ArrowRight, Instagram, Linkedin } from 'lucide-react';
 import { BackdropFX } from '@/components/BackdropFX';
 
 const FOOTER_LINKS = [
@@ -12,8 +12,8 @@ const FOOTER_LINKS = [
 
 const SOCIAL_LINKS = [
   { icon: <Mail size={12} />, label: 'Email', href: 'mailto:arcanists.umy@gmail.com' },
-  { icon: <Users size={12} />, label: 'Linkedin', href: 'https://www.linkedin.com/company/arcanists' },
-  { icon: <CircleFadingPlus size={12} />, label: 'Instagram', href: 'https://www.instagram.com/arcanists.umy' }
+  { icon: <Linkedin size={12} />, label: 'Linkedin', href: 'https://www.linkedin.com/company/arcanists' },
+  { icon: <Instagram size={12} />, label: 'Instagram', href: 'https://www.instagram.com/arcanists.umy' }
 ];
 
 export function Footer() {
@@ -84,7 +84,7 @@ export function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-neutral-900/50 border border-neutral-800 text-neutral-400 hover:text-orange-500 hover:border-orange-500/50 hover:bg-orange-500/5 rounded-xl transition-all duration-300 active:scale-90"
+                    className="p-3 bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-orange-500 hover:border-orange-500/50 hover:bg-orange-500/5 rounded-xl transition-all duration-300 active:scale-90"
                     aria-label={social.label}
                   >
                     {social.icon}

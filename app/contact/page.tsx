@@ -7,7 +7,7 @@ import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { BackdropFX } from '@/components/BackdropFX';
 import { 
-  Mail, Users, Image, ChevronRight, Clock, Shield, Target, Zap, Globe, CircleFadingPlus, ArrowRight 
+  Mail, Linkedin, Users, Image, ChevronRight, Clock, Shield, Target, Zap, Globe, Instagram, ArrowRight 
 } from 'lucide-react';
 
 const CONTACT_CARDS = [
@@ -20,7 +20,7 @@ const CONTACT_CARDS = [
     href: "mailto:arcanists.umy@gmail.com" 
   },
   { 
-    icon: <Users size={24} />, 
+    icon: <Linkedin size={24} />, 
     bgIcon: <Users size={120} />,
     title: "Linkedin", 
     desc: "Community & Support", 
@@ -28,7 +28,7 @@ const CONTACT_CARDS = [
     href: "https://www.linkedin.com/company/arcanists" 
   },
   { 
-    icon: <CircleFadingPlus size={24} />, 
+    icon: <Instagram size={24} />, 
     bgIcon: <Image size={120} />,
     title: "Instagram", 
     desc: "Documentation & Media", 
@@ -80,7 +80,7 @@ export default function ContactPage() {
                   {item.bgIcon}
                 </div>
                 <div className="relative z-10">
-                  <div className="p-3 w-fit rounded-lg md:rounded-xl bg-neutral-900 border border-neutral-800 mb-6 group-hover:border-orange-500/30 transition-colors text-orange-500 group-hover:text-white">
+                  <div className="p-3 w-fit rounded-lg md:rounded-xl bg-neutral-900 mb-6 transition-colors text-orange-500">
                     {item.icon}
                   </div>
                   <h3 className="font-mono text-lg md:text-xl font-bold text-white mb-2">{item.title}</h3>
@@ -114,7 +114,7 @@ export default function ContactPage() {
               </div>
               <div className="relative z-10">
                 <div className="flex items-center gap-4 mb-8 md:mb-10">
-                  <div className="p-2 bg-orange-500/10 rounded-lg">
+                  <div className="p-3 bg-neutral-900 rounded-lg">
                     <Zap className="text-orange-500" size={24} />
                   </div>
                   <h3 className="font-mono text-xl md:text-2xl font-bold text-white uppercase tracking-tight">Requirements</h3>
@@ -143,7 +143,7 @@ export default function ContactPage() {
                 <Shield size={240} />
               </div>
               <div className="relative z-10 flex items-center gap-4 mb-8 md:mb-10">
-                <div className="p-2 bg-orange-500/10 rounded-lg"><Clock className="text-orange-500" size={24} /></div>
+                <div className="p-3 bg-neutral-900 rounded-lg"><Clock className="text-orange-500" size={24} /></div>
                 <h3 className="font-mono text-xl md:text-2xl font-bold text-white uppercase tracking-tight">Selection Process</h3>
               </div>
               <div className="space-y-6 relative z-10">
